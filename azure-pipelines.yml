@@ -21,4 +21,22 @@ steps:
     jdkArchitectureOption: 'x64'
     tasks: 'build'
 
+- task: ArtifactoryGenericUpload@1
+  inputs:
+    artifactoryService: 'Artifactory_saas'
+    specSource: 'taskConfiguration'
+    fileSpec: |
+      {
+        "files": [
+          {
+            "pattern": "target/*",
+            "target": 'libs-snapshot-local/"
+          }
+        ]
+      }
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    failNoOp: true
+
 
