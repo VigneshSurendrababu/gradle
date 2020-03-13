@@ -29,7 +29,7 @@ steps:
       {
         "files": [
           {
-            "pattern": "/*.jar",
+            "pattern": "*",
             "target": "libs-snapshot-local/gradle/"
           }
         ]
