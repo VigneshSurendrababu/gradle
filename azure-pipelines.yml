@@ -29,7 +29,7 @@ steps:
       {
         "files": [
           {
-            "pattern": "target/*",
+            "pattern": "*",
             "target": "libs-snapshot-local/"
           }
         ]
