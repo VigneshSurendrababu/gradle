@@ -29,8 +29,8 @@ steps:
       {
         "files": [
           {
-            "pattern": "*",
-            "target": "libs-snapshot-local/"
+            "pattern": "/*.jar",
+            "target": "libs-snapshot-local/gradle/"
           }
         ]
       }
@@ -39,4 +39,10 @@ steps:
     buildNumber: '$(Build.BuildNumber)'
     failNoOp: true
 
+- task: ArtifactoryPublishBuildInfo@1
+  inputs:
+    artifactoryService: 'Artifactory_saas'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    excludeEnvVars: 
 
