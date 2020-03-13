@@ -90,6 +90,16 @@ project('api') {
         }
     }
 }
+    artifactoryPublish {
+        publications(publishing.publications.ivyJava)
+        properties {
+            simpleFile '**:**:**:*@*', simpleFile: 'only on settings file'
+        }
+    }
+}
+
+artifactoryPublish.skip = false
+
 artifactory {
     clientConfig.setIncludeEnvVars(true)
     clientConfig.info.addEnvironmentProperty('test.adding.dynVar',new java.util.Date().toString())
