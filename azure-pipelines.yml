@@ -30,7 +30,7 @@ steps:
         "files": [
           {
             "pattern": "target/*",
-            "target": 'libs-snapshot-local/"
+            "target": "libs-snapshot-local/"
           }
         ]
       }
