@@ -19,30 +19,6 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
-    tasks: 'build'
+    tasks: 'build artifactoryPublish'
 
-- task: ArtifactoryGenericUpload@1
-  inputs:
-    artifactoryService: 'Artifactory_saas'
-    specSource: 'taskConfiguration'
-    fileSpec: |
-      {
-        "files": [
-          {
-            "pattern": "*",
-            "target": "libs-snapshot-local/gradle/"
-          }
-        ]
-      }
-    collectBuildInfo: true
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
-    failNoOp: true
-
-- task: ArtifactoryPublishBuildInfo@1
-  inputs:
-    artifactoryService: 'Artifactory_saas'
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
-    excludeEnvVars: 
 
