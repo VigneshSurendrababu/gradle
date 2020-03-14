@@ -101,8 +101,8 @@ artifactory {
     publish {
         repository {
             repoKey = 'libs-snapshot-local' // The Artifactory repository key to publish to
-            username = "vigneshs" // The publisher user name
-            password = "AKCp5e3yJZCiZXizxkHMYqiRwVGEKEDSKpyjNNQWrSuQ22CEF4MyJvfms1zcVtKxCKSk2yoSr" // The publisher password
+            username = "${artifactory_user}" // The publisher user name
+            password = "${artifactory_password}" // The publisher password
             // This is an optional section for configuring Ivy publication (when publishIvy = true).
             ivy {
               ivyLayout = '[organization]/[module]/ivy-[revision].xml'
